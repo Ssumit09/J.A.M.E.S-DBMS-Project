@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login </title>
+  <title>Typewriter: See Case Updates</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,17 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  
-  <!-- preogress bar -->
 
-
-  <!-- =======================================================
-  * Template Name: Logis
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -67,7 +57,7 @@
   </header><!-- End Header -->
   <!-- End Header -->
 
-  <main id="main">
+
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
@@ -75,8 +65,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center"><br><br><br>
-              <h2>Register Your Case!!!</h2>
-              <p>Fill the given forms consisting of Personal Details Section, Case Details Section and Upload Documents Section inorder to register your case.</p>
+              <h2>See Case Hearings Update </h2>
+              <p>Here, you can see the all the updates that you've entered for the client.</p>
             </div>
           </div>
         </div>
@@ -85,7 +75,7 @@
         <div class="container">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Register Your Case : Case Details and Upload Documents Section</li>
+            <li>Typewriter Section: Updated Case Status</li>
           </ol>
         </div>
       </nav>
@@ -93,72 +83,102 @@
 
 
 
+    
 
     
-    <section class="container1">
-      <header>
-         Case Details
-
-      </header><br><hr>
-
-      <form action="php/connection2.php" class="form" method="POST" enctype="multipart/form-data">
-
-        <!-- <div class="input-box"> -->
-          <label> Case Type</label>
-          <div class="select11">
-          
-            <div class="select-box11">
-              <select name="type">
-              <option value="">Select case type</option>
-              <option value="option1">Robbery case</option>
-              <option value="option2">Property dispute case</option>
-              <option value="option3">Insurance claim</option>
-              <option value="option4">Assault case</option>
-              </select>
-            </div>
-          
-        </div>
-
-        <div class="column">
-          <div class="input-box">
-            <label>Case Against</label>
-            <input class="validity" name="name" type="text" class="validity" placeholder="Enter full name of accused party" required />
-            <div><label class="label1">accused's full name</label></div>
-          </div>
-          <div class="input-box">
-            <label>Crime Date</label>
-            <input name="date" id="date-input" class="validity1" type="date" max=""/>
-            <div><label class="label1">(if available) & you cannot select a future date</label></div>
-          </div>
-        </div>
-
-
-        <br><br><br><header>Upload Documents</header><br><hr>
-            
-            </div>
-            
-            
-          </div>
-
-          <br><label><h5>Upload Your Image:&nbsp &nbsp &nbsp</h5></label>
-          <input name="image1" type="file" class="lbl1" required><br><br>
-
-          
-            <div class="input-box">
-              <label>FIR ID</label>
-              <input name="id" class="validity1" type="num" placeholder="Enter your FIR number (6 digits) (if available)"/>
-              <div><label class="label1">format: XXXXXX</label></div>
-            </div><br>
-
-          <br><label><h5>Upload Aadhar card Image: &nbsp &nbsp &nbsp</h5></label>
-          <input name="image2" type="file" class="lbl1" required>
-         
-        <button>Submit</button>
-      </form>
-    </section>
-
+    <div style="width:70%; margin: 0 auto;"><br><hr>
+    <h1 align="center">Case Status</h1><hr>
+    <table class="table" id="myTable">
+      <tr>
+        <th>S.No</th>
+        <th>Aadhar No.</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Current Hearing Date</th>
+        <th>Next Hearing Date</th>
+        <th>Case Update</th>
+        <th>Final Verdict</th>
+      </tr>
     
-  <!-- ======= Footer ======= -->
+    <?php
+      $servername = "localhost";
+      $username = "root";
+      $database = "james";
+      $password = "";
+      // Create a connection to the MySQL database
+      $conn = new mysqli($servername, $username, $password, $database);
+      
+      // Check the connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      // Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $aadhar=$_POST['aadhar'];
+  $fname=$_POST['fname'];
+  $mname=$_POST['mname'];
+  $lname=$_POST['lname'];
+  $date1=$_POST['date1'];
+  $date2=$_POST['date2'];
+  $descript=$_POST['descript'];
+  $verdict=$_POST['verdict'];
+
+  // SQL query to insert data into the database
+  $sql = "insert into typewriter(aadhar, fname, mname, lname, date1, date2, descript, verdict) VALUES ('$aadhar', '$fname', '$mname', '$lname', '$date1', '$date2', '$descript', '$verdict')";
+
+  if ($conn->query($sql) === TRUE) {
+      echo "<script>alert('Form Accepted. Press OK to goto Client Case Status page');</script>";
+
+      // echo "<script type='text/javascript'> document.location = 'connection3.php';</script>";
+  } else { 
+      echo '<div class="alert alert-danger" role="alert">
+      Registeration unsuccessful please try again
+    </div>';
+  }
+}
+
+// Close the database connection
+// $conn->close();
+
+
+
+      $query="select * from typewriter";
+      $result=mysqli_query($conn, $query);
+      while($row=mysqli_fetch_assoc($result))
+      {
+        ?>
+        <tr>
+          <td><b><?php echo $row['id']?></b></td>
+          <td><?php echo $row['aadhar']?></td>
+          <td><?php echo $row['fname']?></td>
+          <td><?php echo $row['mname']?></td>
+          <td><?php echo $row['lname']?></td>
+          <td><?php echo $row['date1']?></td>
+          <td><?php echo $row['date2']?></td>
+          <td><?php echo $row['descript']?></td>
+          <td><?php echo $row['verdict']?></td>
+          
+      </tr>
+      
+
+      <?php
+
+      }
+      $conn->close();
+
+
+      ?>
+      </table >
+    </div>
+
+
+
+
+
+
+   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="container">
@@ -219,10 +239,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById("date-input").setAttribute("max",today);
-  </script>
+  
 
 </body>
 

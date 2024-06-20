@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login </title>
+  <title>Public Case Updates</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -69,12 +69,22 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center"><br><br><br>
-              <h2>Search for any Privious case!</h2>
-              <p>Search for the final judgement of privious cases for references</p>
+              <h2>Search for & See details of any Previous case!</h2>
+              <p>Search for the final judgement of previous cases for references</p>
             </div>
           </div>
         </div>
       </div>
+      <nav>
+      <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Documents: View Previous Case Details</li>
+          </ol>
+          </div>
+          </nav>
+        
+      
     </div><!-- End Breadcrumbs -->
 
     <?php
@@ -91,53 +101,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $title = $_POST["title"];
-  $des = $_POST["description"];
-  $sno = $_POST["sno"]; // Assuming sno is the unique identifier
-
-  // Check if the sno exists in the database
-  $checkQuery = "SELECT * FROM search WHERE ID = '$sno'";
-  $checkResult = mysqli_query($conn, $checkQuery);
-
-  if (mysqli_num_rows($checkResult) > 0) {
-      echo '<div class="alert alert-warning" role="alert">
-              Record with sno ' . $sno . ' already exists.
-            </div>';
-  } else {
-      // Sno does not exist, proceed to insert data
-      $sql = "INSERT INTO search(sno, Title, Description) VALUES ('$sno', '$title', '$des')";
-      $result = mysqli_query($conn, $sql);
-
-      if ($result) {
-          echo '<div class="alert alert-success" role="alert">Record added successfully</div>';
-      } else {
-          echo '<div class="alert alert-danger" role="alert">
-                  Error in executing Query.
-                </div>';
-      }
-  }
-}
 
 ?>
-
-     <!-- Edit Modal -->
-
-<div class="container my-4">
-  <h2>Add</h2>
-  <form action="search_cases.php" method="POST">
-    <div class="form-group">
-      <label for="title">Note Title</label>
-      <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
-    </div>
-
-    <div class="form-group">
-      <label for="desc">Note Description</label>
-      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Note</button>
-  </form>
-</div>
 
 <div class="container my-4">
 
@@ -148,27 +113,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <th scope="col">S.No</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Download PDF</th>
       </tr>
     </thead>
     <tbody>
       <?php
       // Retrieve data from database
-      $sql = "select * from `search`";
+      $sql = "select ID, Title, Description, pdf_dir  from `search`";
       $result = mysqli_query($conn , $sql);
-      $sno = 0;
+      
       while($row = mysqli_fetch_assoc($result)) {
-        // output data of each row?
-        $sno = $sno +1;
-         echo " 
-         <tr>
-         <th scope = 'row'>".$row['ID'] . "</th>
-          <td>".$row['Title']."</td>
-          <td>".$row['Description']."</td>
-          <td><a href ='/edit'>Edit</a> <a href='/del'>Delect</a></td>
-         </tr>";
-        }
+        $file_path = $row['pdf_dir'];
         ?>
+       
+        
+          
+         <tr>
+         <th scope = 'row'><?php echo $row['ID']; ?></th>
+          <td><?php echo $row['Title']; ?></td>
+          <td><?php echo $row['Description']; ?></td>
+          <td><a href="<?php echo $file_path;?>" download>Download PDF</a></td>
+         </tr>
+        <?php
+      }
+      ?>
+        
 
 
     </tbody>
@@ -240,9 +209,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Logis</span>
+            <span>James</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>J.A.M.E.S stands as a comprehensive and technologically advanced web application designed to serve the diverse needs of three key stakeholders: clients, judges, and government administrators.</p>
           <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -256,30 +225,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
+          <p>Amrita Hostel<br><br>
+            <strong>Phone:</strong> +91 1234567890<br>
             <strong>Email:</strong> info@example.com<br>
           </p>
 
@@ -311,6 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
 
 </body>
 

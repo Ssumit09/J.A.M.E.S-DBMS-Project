@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login </title>
+  <title>Personal Details Form</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,11 +28,19 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <script>
-    function fun(){
-      window.open("/form2.html");
-    }
-  </script>
+
+  
+  <!-- preogress bar -->
+
+
+  <!-- =======================================================
+  * Template Name: Logis
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
 </head>
 
 <body>
@@ -43,7 +51,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="img/logo.png" alt="">
+        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>James</h1>
       </a>
 
@@ -64,7 +72,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('img/page-header.webp');">
+      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center"><br><br><br>
@@ -74,7 +82,20 @@
           </div>
         </div>
       </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Register Your Case : Personal Details Section</li>
+          </ol>
+        </div>
+      </nav>
     </div><!-- End Breadcrumbs -->
+
+
+
+
+    
     <section class="container1">
       <header>
          Personal Details
@@ -84,10 +105,10 @@
       
 
 
-      <form action="connectt.php" method="post" class="form">
+      <form action="php/connection1.php" method="post" class="form">
         <div class="input-box">
             <label>Aadhar Card Number</label>
-            <input class="validity" type="text" placeholder="Enter your Aadhar number (16 digits)" name="aadhar" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" title="Please enter in this format: 1234-1234-1234" required />
+            <input class="validity" type="text" placeholder="Enter your Aadhar number (12 digits)" name="aadhar" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" title="Please enter in this format: 1234-1234-1234" required />
             <div><label class="label1">format: XXXX-XXXX-XXXX</label></div>
           </div>
         
@@ -126,7 +147,8 @@
           </div>
           <div class="input-box">
             <label>Date Of Birth</label>
-            <input class="validity" type="date" placeholder="Enter birth date" name="date" title="Please select a date" required />
+            <input class="validity" type="date" placeholder="Enter birth date" name="date" title="Please select a date" max="2006-01-01" required />
+            <div><label class="label1">you must be above 18 years of age</label></div>
           </div>
         </div>
         <div class="gender-box">
@@ -188,6 +210,10 @@
 
       </form>
     </section>
+
+
+
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -195,10 +221,10 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Logis</span>
+            <span>James</span>
           </a>
           <p>J.A.M.E.S stands as a comprehensive and technologically advanced web application designed to serve the diverse needs of three key stakeholders: clients, judges, and government administrators.</p>
-         <div class="social-links d-flex mt-4">
+          <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -211,27 +237,13 @@
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Graphic Design</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
+          <p>Amrita Hostel<br><br>
+            <strong>Phone:</strong> +91 1234567890<br>
             <strong>Email:</strong> info@example.com<br>
           </p>
 
@@ -242,14 +254,7 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Logis</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        &copy; Copyright <strong><span>James</span></strong>. All Rights Reserved
       </div>
     </div>
 

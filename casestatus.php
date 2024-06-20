@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login </title>
+  <title>User Login: View Status</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,17 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  
-  <!-- preogress bar -->
 
-
-  <!-- =======================================================
-  * Template Name: Logis
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -67,7 +57,7 @@
   </header><!-- End Header -->
   <!-- End Header -->
 
-  <main id="main">
+
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
@@ -75,8 +65,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center"><br><br><br>
-              <h2>Register Your Case!!!</h2>
-              <p>Fill the given forms consisting of Personal Details Section, Case Details Section and Upload Documents Section inorder to register your case.</p>
+              <h2>View Case Status</h2>
+              <p>Dear Client, here you can see all your case updates, including court arguments for each hearing and the date for the next court hearing. Also, the final verdict of your case will be displayed here.<br>Note: The verdict will be only displayed after the final hearing. </p>
             </div>
           </div>
         </div>
@@ -85,7 +75,7 @@
         <div class="container">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Register Your Case : Case Details and Upload Documents Section</li>
+            <li>User Dashboard: View Case Status</li>
           </ol>
         </div>
       </nav>
@@ -93,72 +83,184 @@
 
 
 
+    
+
 
     
-    <section class="container1">
-      <header>
-         Case Details
-
-      </header><br><hr>
-
-      <form action="php/connection2.php" class="form" method="POST" enctype="multipart/form-data">
-
-        <!-- <div class="input-box"> -->
-          <label> Case Type</label>
-          <div class="select11">
-          
-            <div class="select-box11">
-              <select name="type">
-              <option value="">Select case type</option>
-              <option value="option1">Robbery case</option>
-              <option value="option2">Property dispute case</option>
-              <option value="option3">Insurance claim</option>
-              <option value="option4">Assault case</option>
-              </select>
-            </div>
-          
-        </div>
-
-        <div class="column">
-          <div class="input-box">
-            <label>Case Against</label>
-            <input class="validity" name="name" type="text" class="validity" placeholder="Enter full name of accused party" required />
-            <div><label class="label1">accused's full name</label></div>
-          </div>
-          <div class="input-box">
-            <label>Crime Date</label>
-            <input name="date" id="date-input" class="validity1" type="date" max=""/>
-            <div><label class="label1">(if available) & you cannot select a future date</label></div>
-          </div>
-        </div>
-
-
-        <br><br><br><header>Upload Documents</header><br><hr>
-            
-            </div>
-            
-            
-          </div>
-
-          <br><label><h5>Upload Your Image:&nbsp &nbsp &nbsp</h5></label>
-          <input name="image1" type="file" class="lbl1" required><br><br>
-
-          
-            <div class="input-box">
-              <label>FIR ID</label>
-              <input name="id" class="validity1" type="num" placeholder="Enter your FIR number (6 digits) (if available)"/>
-              <div><label class="label1">format: XXXXXX</label></div>
-            </div><br>
-
-          <br><label><h5>Upload Aadhar card Image: &nbsp &nbsp &nbsp</h5></label>
-          <input name="image2" type="file" class="lbl1" required>
-         
-        <button>Submit</button>
-      </form>
-    </section>
-
     
-  <!-- ======= Footer ======= -->
+    <?php
+          session_start(); // Start the session (should be at the top of your PHP script)
+
+          if (isset($_SESSION['username'])) {
+              $username = $_SESSION['username'];
+              // Now $username contains the logged-in user's username
+          } else {
+              // Redirect or handle the case where the user is not logged in
+          }
+          
+        //   echo $username;
+      $servername = "localhost";
+      $username = "root";
+      $database = "james";
+      $password = "";
+      // Create a connection to the MySQL database
+      $conn = new mysqli($servername, $username, $password, $database);
+      
+      // Check the connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+
+
+
+
+// Query to get the last entry based on the primary key
+$query = "SELECT email FROM user ORDER BY id DESC LIMIT 1";
+
+// Execute the query
+$result = $conn->query($query);
+
+// Check if the query was successful
+if ($result) {
+    // Fetch the row
+    $row = $result->fetch_assoc();
+    // Now $row contains the last entry in the table
+
+
+    // print_r($row);
+
+    // Close the result set
+    $result->close();
+} else {
+    // Handle the case where the query failed
+    echo "Error: " . $conn->error;
+}
+
+// mysqli_free_result($result);
+
+
+
+
+
+
+// -- Get the last value from table1
+$query = "SELECT email FROM user ORDER BY id DESC LIMIT 1";
+$result = $conn->query($query);
+
+// Check if the query was successful
+if ($result) {
+    // Fetch the result into an associative array
+    $row = $result->fetch_assoc();
+
+    // Check if there is a result
+    if ($row) {
+        // Access the email value and store it in the $mail variable
+        $mail = $row['email'];
+
+        // Output the result
+        // echo "Last email: " . $mail;
+    } else {
+        echo "No result found.";
+    }
+} else {
+    echo "Error executing query: " . $conn->error;
+}
+
+//print hello user
+$query1 = "SELECT tw.aadhar, tw.fname, tw.mname, tw.lname, tw.date1, tw.date2, tw.descript, tw.verdict
+          FROM typewriter tw, regform1
+          WHERE '$mail' = regform1.mail AND regform1.aadhar = tw.aadhar";
+
+// Execute the query
+$result1 = mysqli_query($conn, $query1);
+
+// Check if the query was successful
+if ($result1) {
+
+    // Fetch data from the result set
+    while ($row = mysqli_fetch_assoc($result1)) {
+        // Concatenate the first name, middle name, and last name
+        $fullName = $row['fname'] . ' ' . $row['mname'] . ' ' . $row['lname'];
+
+        // Print the full name
+        
+    }
+
+    // Free the result set
+    mysqli_free_result($result1);
+}
+
+?>
+ 
+ <div style="width:70%; margin: 0 auto;"><br>
+
+    <h2><?php echo "Hello, $fullName";?></h2><br><hr>
+
+    <h1 align="center">Case Status</h1><hr>
+    <table class="table" id="myTable">
+      <tr>
+        <th>S.No</th>
+        <th>Aadhar No.</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Current Hearing Date</th>
+        <th>Next Hearing Date</th>
+        <th>Case Update</th>
+        <th>Final Verdict</th>
+      </tr>
+ <?php
+
+
+
+
+
+
+// $query2 = "select tw.id, tw.aadhar, tw.fname, tw.mname, tw.lname, tw.date1, tw.date2, tw.descript, tw.verdict from typewriter tw, regform1 rf, user u where u.Email = '$lastValue
+
+$id=1;
+
+      $query="select tw.aadhar, tw.fname, tw.mname, tw.lname, tw.date1, tw.date2, tw.descript, tw.verdict from typewriter tw,regform1 where '$mail'=regform1.mail && regform1.aadhar= tw.aadhar";
+      $result=mysqli_query($conn, $query);
+      while($row=mysqli_fetch_assoc($result))
+      {
+        ?>
+        <tr>
+          <td><b><?php echo $id?></b></td>
+          <td><?php echo $row['aadhar']?></td>
+          <td><?php echo $row['fname']?></td>
+          <td><?php echo $row['mname']?></td>
+          <td><?php echo $row['lname']?></td>
+          <td><?php echo $row['date1']?></td>
+          <td><?php echo $row['date2']?></td>
+          <td><?php echo $row['descript']?></td>
+          <td><?php echo $row['verdict']?></td>
+          
+      </tr>
+      
+
+      <?php
+      $id++;
+
+      }
+      $conn->close();
+
+
+      ?>
+      </table >
+    </div>
+
+
+
+
+
+
+
+
+
+<br>
+   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
     <div class="container">
@@ -219,10 +321,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById("date-input").setAttribute("max",today);
-  </script>
+  
 
 </body>
 
