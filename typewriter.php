@@ -272,13 +272,6 @@ $conn->close();
 
       </form>
     </section>
-
-
-
-
-    
-
-
    <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
