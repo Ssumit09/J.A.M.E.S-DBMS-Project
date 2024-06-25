@@ -1,7 +1,3 @@
-Here's a detailed README file for your JAMES project:
-
----
-
 # JAMES (Judicial Administrative Management and Execution System)
 
 JAMES is a comprehensive system designed to streamline the management and execution of judicial administrative tasks. The system enables easy management of judges, lawyers, and case details, facilitating efficient and transparent judicial processes.
@@ -124,7 +120,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Author
 
 - **Ojas** - [LinkedIn](https://www.linkedin.com/in/ojas)
-
----
-
-Feel free to customize this README file further to suit your project's specific details and requirements.
