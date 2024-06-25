@@ -81,11 +81,6 @@
       </nav>
     </div><!-- End Breadcrumbs -->
 
-
-
-    
-
-    
     <div style="width:70%; margin: 0 auto;"><br><hr>
     <h1 align="center">Case Status</h1><hr>
     <table class="table" id="myTable">
@@ -142,8 +137,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close the database connection
 // $conn->close();
 
-
-
       $query="select * from typewriter";
       $result=mysqli_query($conn, $query);
       while($row=mysqli_fetch_assoc($result))
@@ -172,11 +165,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       ?>
       </table >
     </div>
-
-
-
-
-
 
    <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

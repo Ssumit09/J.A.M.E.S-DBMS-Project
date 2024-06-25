@@ -3,11 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Login </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Details Form</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,17 +28,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  
-  <!-- preogress bar -->
-
-
-  <!-- =======================================================
-  * Template Name: Logis
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -47,13 +35,10 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="img/logo.png" alt="">
         <h1>James</h1>
       </a>
-
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
@@ -61,17 +46,16 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="contact.html">About</a></li>
         </ul>
-      </nav><!-- .navbar -->
-
+      </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
   <!-- End Header -->
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
+      <div class="page-header d-flex align-items-center" style="background-image: url('img/page-header.webp');">
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center"><br><br><br>
@@ -91,73 +75,70 @@
       </nav>
     </div><!-- End Breadcrumbs -->
 
-
-
-
-    
     <section class="container1">
       <header>
-         Case Details
-
-      </header><br><hr>
-
+        Case Details
+      </header>
+      <br>
+      <hr>
+    
       <form action="php/connection2.php" class="form" method="POST" enctype="multipart/form-data">
-
-        <!-- <div class="input-box"> -->
-          <label> Case Type</label>
+    
+        <div class="input-box">
+          <label for="case-type">Case Type</label>
           <div class="select11">
-          
             <div class="select-box11">
-              <select name="type">
-              <option value="">Select case type</option>
-              <option value="option1">Robbery case</option>
-              <option value="option2">Property dispute case</option>
-              <option value="option3">Insurance claim</option>
-              <option value="option4">Assault case</option>
+              <select name="type" id="case-type" required>
+                <option value="">Select case type</option>
+                <option value="robbery">Robbery case</option>
+                <option value="property-dispute">Property dispute case</option>
+                <option value="insurance-claim">Insurance claim</option>
+                <option value="assault">Assault case</option>
               </select>
             </div>
-          
+          </div>
         </div>
-
+    
         <div class="column">
           <div class="input-box">
-            <label>Case Against</label>
-            <input class="validity" name="name" type="text" class="validity" placeholder="Enter full name of accused party" required />
+            <label for="case-against">Case Against</label>
+            <input id="case-against" class="validity" name="name" type="text" placeholder="Enter full name of accused party" required />
             <div><label class="label1">accused's full name</label></div>
           </div>
+    
           <div class="input-box">
-            <label>Crime Date</label>
-            <input name="date" id="date-input" class="validity1" type="date" max=""/>
+            <label for="crime-date">Crime Date</label>
+            <input id="crime-date" name="date" class="validity1" type="date" max="" />
             <div><label class="label1">(if available) & you cannot select a future date</label></div>
           </div>
         </div>
-
-
-        <br><br><br><header>Upload Documents</header><br><hr>
-            
-            </div>
-            
-            
-          </div>
-
-          <br><label><h5>Upload Your Image:&nbsp &nbsp &nbsp</h5></label>
-          <input name="image1" type="file" class="lbl1" required><br><br>
-
-          
-            <div class="input-box">
-              <label>FIR ID</label>
-              <input name="id" class="validity1" type="num" placeholder="Enter your FIR number (6 digits) (if available)"/>
-              <div><label class="label1">format: XXXXXX</label></div>
-            </div><br>
-
-          <br><label><h5>Upload Aadhar card Image: &nbsp &nbsp &nbsp</h5></label>
-          <input name="image2" type="file" class="lbl1" required>
-         
-        <button>Submit</button>
+    
+        <br><br><br>
+        <header>Upload Documents</header>
+        <br>
+        <hr>
+    
+        <div class="input-box">
+          <label for="upload-image"><h5>Upload Your Image:</h5></label>
+          <input id="upload-image" name="image1" type="file" class="lbl1" required>
+        </div>
+    
+        <div class="input-box">
+          <label for="fir-id">FIR ID</label>
+          <input id="fir-id" name="id" class="validity1" type="number" placeholder="Enter your FIR number (6 digits) (if available)" pattern="[0-9]{6}" title="Please enter exactly 6 digits" />
+          <div><label class="label1">format: XXXXXX</label></div>
+        </div>
+        <br>
+    
+        <div class="input-box">
+          <label for="upload-aadhar"><h5>Upload Aadhar card Image:</h5></label>
+          <input id="upload-aadhar" name="image2" type="file" class="lbl1" required>
+        </div>
+    
+        <button type="submit">Submit</button>
       </form>
     </section>
-
-    
+        
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 

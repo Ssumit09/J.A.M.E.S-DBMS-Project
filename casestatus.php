@@ -80,14 +80,7 @@
         </div>
       </nav>
     </div><!-- End Breadcrumbs -->
-
-
-
-    
-
-
-    
-    
+ 
     <?php
           session_start(); // Start the session (should be at the top of your PHP script)
 
@@ -110,10 +103,6 @@
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-
-
-
-
 
 // Query to get the last entry based on the primary key
 $query = "SELECT email FROM user ORDER BY id DESC LIMIT 1";
@@ -138,10 +127,6 @@ if ($result) {
 }
 
 // mysqli_free_result($result);
-
-
-
-
 
 
 // -- Get the last value from table1
@@ -213,10 +198,6 @@ if ($result1) {
  <?php
 
 
-
-
-
-
 // $query2 = "select tw.id, tw.aadhar, tw.fname, tw.mname, tw.lname, tw.date1, tw.date2, tw.descript, tw.verdict from typewriter tw, regform1 rf, user u where u.Email = '$lastValue
 
 $id=1;
@@ -238,26 +219,14 @@ $id=1;
           <td><?php echo $row['verdict']?></td>
           
       </tr>
-      
-
       <?php
       $id++;
 
       }
       $conn->close();
-
-
       ?>
       </table >
     </div>
-
-
-
-
-
-
-
-
 
 <br>
    <!-- ======= Footer ======= -->
