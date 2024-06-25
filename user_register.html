@@ -1,22 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>User Registration - JAMES</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <title>Login </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,28 +24,25 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body>
 
+  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="img/logo.png" alt="">
         <h1>James</h1>
       </a>
-
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-         
           <li class="dropdown"><a href="#"><span>Logins</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="gov_login.html">Government Login</a></li>
@@ -55,13 +51,10 @@
             </ul>
           </li>
           <li><a href="contact.html" class="active">Contact</a></li>
-          
         </ul>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
-  <!-- End Header -->
 
   <main id="main">
 
@@ -71,9 +64,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2>Create Your Account 
-              </h2>
-              <p>JAMES brings to you a hassle-free method manage all your judicial tasks.<br>Start your journey with us, now.<br>Fill the given forms inorder to create your account. </p>
+              <h2>Create Your Account</h2>
+              <p>JAMES brings to you a hassle-free method to manage all your judicial tasks.<br>Start your journey with us now.<br>Fill the given forms to create your account.</p>
             </div>
           </div>
         </div>
@@ -87,53 +79,44 @@
         </div>
       </nav>
     </div><!-- End Breadcrumbs -->
-    <!-- ======= Get a Quote Section ======= -->
+
+    <!-- ======= Registration Section ======= -->
     <section id="get-a-quote" class="get-a-quote">
       <div class="container" data-aos="fade-up">
-
         <div class="row g-0">
-
-          <div class="col-lg-5 quote-bg" >
+          <div class="col-lg-5 quote-bg">
             <img src="img/judge1.png" class="img-fluid mb-3 mb-lg-0" style="padding-top:100px" height="50px" alt="">
-    
           </div>
-
           <div class="col-lg-7" style="background-color:#f3f6fc; padding: 2em; border-radius: 5px;">
             <form action="php/user_register.php" method="post">
               <div style="text-align: center;">
                 <h1>Register</h1>
               </div>
-                <div class="mb-3">
-                <label for="Username" class="form-label">Username</label>
-                <input type="text" class="form-control" nid="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
-                </div>
-
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                </div>
-
-                <a href="user_login.html" style="float:left">Already have an account</a></br></br>
-                <button  type="submit" class="btn btn-primary">Submit</button>
-              </form>
-          </div><!-- End Quote Form -->
-
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+              </div>
+              <a href="user_login.html" style="float:left">Already have an account</a></br></br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div><!-- End Form -->
         </div>
-
       </div>
-    </section><!-- End Get a Quote Section -->
+    </section><!-- End Registration Section -->
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer" style="height: 70%;">
-
+  <footer id="footer" class="footer">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
@@ -148,45 +131,35 @@
             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
             <li><a href="#">Logins</a></li>
-
           </ul>
         </div>
-
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
           <p>
-            Amrita hostel  <br><br>
+            Amrita hostel<br><br>
             <strong>Phone:</strong> +91 1234567890<br>
             <strong>Email:</strong> info@example.com<br>
           </p>
-
         </div>
-
       </div>
     </div>
-
     <div class="container mt-4">
       <div class="copyright">
         &copy; Copyright <strong><span>James</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-
   </footer><!-- End Footer -->
-  <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->

@@ -1,39 +1,18 @@
 <?php
-//Database configuration
-$servername = "localhost";
-$username = "root";
-$database = "James";
-$password = "";
-// Create a connection to the MySQL database
-$conn = new mysqli($servername, $username, $password, $database);
+include('config.php');
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+if (isset($_POST['add'])) {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $type = $_POST['type'];
 
-// Process the form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //$id = $_POST["id"];
-    $name = $_POST["name"];
-    $address = $_POST["description"];
-    $type = $_POST["type"];
+    $query = "INSERT INTO lawyers (Name, Address, Type) VALUES ('$name', '$description', '$type')";
+    $result = mysqli_query($conn, $query);
 
-    // SQL query to insert data into the database
-    $sql = "INSERT INTO laywer (Name, Address, Type) VALUES ('$name', '$address', '$type')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Lawyer Added successfully');</script>";
-
-       echo "<script type='text/javascript'> document.location = '../gov_lawyer.php';</script>";
-    } else { 
-        echo '<div class="alert alert-danger" role="alert">
-        Registeration unsuccessfull please try again
-      </div>';
+    if ($result) {
+        header('Location: ../gov_lawyer.php');
+    } else {
+        echo "Failed to add lawyer.";
     }
 }
-
-// Close the database connection
-$conn->close();
 ?>
-

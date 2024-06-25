@@ -1,29 +1,16 @@
-<?php 
+<?php
+include('config.php');
 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$database = "James";
-$password = "";
-// Create a connection to the MySQL database
-$conn = new mysqli($servername, $username, $password, $database);
+    $query = "UPDATE lawyers SET Status = '1' WHERE Id = '$id'";
+    $result = mysqli_query($conn, $query);
 
-	if (isset($_GET['id'])){ 
-
-		// Store the value from get to a 
-		// local variable "course_id" 
-		$lawyer_id=$_GET['id']; 
-
-		// SQL query that sets the status 
-		// to 1 to indicate activation. 
-		$sql="UPDATE `laywer` SET 
-			`Status`=1 WHERE Id='$lawyer_id'"; 
-
-		// Execute the query 
-		mysqli_query($conn,$sql); 
-	} 
-
-	// Go back to course-page.php 
-	header('location: ../gov_lawyer.php'); 
+    if ($result) {
+        header('Location: ../gov_lawyer.php');
+    } else {
+        echo "Failed to activate lawyer.";
+    }
+}
 ?>

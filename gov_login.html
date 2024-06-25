@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login </title>
+  <title>Government Login - JAMES</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -34,89 +34,73 @@
 
 <body>
 
+  <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="img/logo.png" alt="">
         <h1>James</h1>
       </a>
-
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-         
           <li class="dropdown"><a href="#"><span>Logins</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <!-- <li><a href="govt_login.html">Government Login</a></li> -->
+              <li><a href="gov_login.html">Government Login</a></li>
               <li><a href="judge_login.html">Judge Login</a></li>
-              <li><a href="user_login.html">client Login</a></li>
+              <li><a href="user_login.html">Client Login</a></li>
               <li><a href="Typewriter_login.html">Typewriter Login</a></li>
             </ul>
           </li>
           <li><a href="contact.html" class="active">Contact</a></li>
-          
         </ul>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
-  <!-- End Header -->
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="page-header d-flex align-items-center" style="background-image: url('img/page-header.webp');">
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2>
-              </h2>
-              <p>JAMES brings to you a hassle-free method manage all your judicial tasks.<br>Start your journey with us, now.<br>Fill the given forms inorder to login into your account for managing cases & judges. </p>
+              <h2>Government Login</h2>
+              <p>JAMES brings to you a hassle-free method to manage all your judicial tasks.<br>Start your journey with us now.<br>Fill the given forms to log in to your account for managing cases & judges.</p>
             </div>
           </div>
         </div>
       </div>
     </div><!-- End Breadcrumbs -->
-    <!-- ======= Get a Quote Section ======= -->
-    
+
+    <!-- ======= Login section ======= -->
     <section id="get-a-quote" class="get-a-quote">
       <div class="container" data-aos="fade-up">
-
         <div class="row g-0">
-
-          <div class="col-lg-5 quote-bg" >
+          <div class="col-lg-5 quote-bg">
             <img src="img/judge1.png" class="img-fluid mb-3 mb-lg-0" style="padding-top:100px" height="50px" alt="">
-    
           </div>
-
           <div class="col-lg-7" style="background-color:#f3f6fc; padding: 2em; border-radius: 5px;">
             <form action="php/gov_login.php" method="post">
               <div style="text-align: center;">
                 <h1>Government Login</h1>
               </div>
               <div class="mb-3">
-              <label for="Username" class="form-label">Username</label>
-              <input type="text" class="form-control" nid="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
               </div>
-
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
               </div>
-              <!-- <a href="user_register.html" style="float:left">New User</a></br></br> -->
-              <button type="submit" class="btn btn-primary" >Submit</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
-
         </div>
-
       </div>
-    </section><!-- End Get a Quote Section -->
+    </section><!-- End Login section -->
 
   </main><!-- End #main -->
 
