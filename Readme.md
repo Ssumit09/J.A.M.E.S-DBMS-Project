@@ -29,9 +29,9 @@ JAMES/
 ├── gov_judges.php            # Judges management page
 ├── gov_lawyer.php            # Lawyers management page
 ├── index.html                # Home page
-├── login.php                 # Login page
+├── login.php                 # Login page 
 ├── signup.php                # Signup page
-├── search_cases.php          # Case search functionality
+├── search_cases.php          # Case search functionality 
 ├── style.css                 # Stylesheet for the project
 └── js/
     ├── main.js               # Main JavaScript file
